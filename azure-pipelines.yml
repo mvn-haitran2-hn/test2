@@ -26,24 +26,29 @@ pool:
 #   artifact: kmaa-cms-test
 
 jobs:
-  - job: Build
-    displayName: Build
+  # - job: Build
+  #   displayName: Build
+  #   steps:
+  #     - task: NodeTool@0
+  #       inputs:
+  #         versionSpec: '10.x'
+  #       displayName: 'Install Node.js'
+
+  #   # - script: |
+  #   #     npm install
+  #   #     npm run build
+  #   #   displayName: 'npm install and build'
+
+  #   # - publish: $(System.DefaultWorkingDirectory)/kmaa-cms/dist
+  #   #   artifact: kmaa-cms
+  #     - publish: $(System.DefaultWorkingDirectory)/test2/test
+  #       artifact: kmaa-cms-test
+  - job: MyJob
+    displayName: My First Job
+    workspace:
+      clean: outputs
     steps:
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '10.x'
-        displayName: 'Install Node.js'
-
-    # - script: |
-    #     npm install
-    #     npm run build
-    #   displayName: 'npm install and build'
-
-    # - publish: $(System.DefaultWorkingDirectory)/kmaa-cms/dist
-    #   artifact: kmaa-cms
-      - publish: $(System.DefaultWorkingDirectory)/test2/test
-        artifact: kmaa-cms-test
-
+    - script: echo My first job
   - deployment: DeployWeb
     displayName: deploy Web App
     # creates an environment if it doesn't exist
