@@ -28,6 +28,7 @@ pool:
 jobs:
   - deployment: Build
     displayName: Build
+    environment: Test
     strategy:
       runOnce:
         deploy:
