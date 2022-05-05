@@ -26,9 +26,8 @@ pool:
 #   artifact: kmaa-cms-test
 
 jobs:
-  - deployment: Build
+  - job: Build
     displayName: Build
-    environment: Test
     strategy:
       runOnce:
         deploy:
@@ -55,6 +54,7 @@ jobs:
       name: 'Testenv'
       resourceType: VirtualMachine
       tags: tag1
+    dependsOn: Build
     strategy:
       runOnce:
         deploy:
