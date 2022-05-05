@@ -75,4 +75,5 @@ jobs:
               ls -l
               pwd
               hostname
+              echo $(**Pipeline.Workspace**)
           - script: sudo cp -r $(**Pipeline.Workspace**)/kmaa-cms-test /var/www/kmaa-cms
