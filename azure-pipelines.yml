@@ -50,7 +50,7 @@ jobs:
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec: '10.x'
+        versionSpec: '18.x'
       displayName: 'Install Node.js'
     - script: |
         ls -l
@@ -76,4 +76,5 @@ jobs:
               pwd
               hostname
               echo $(**Pipeline.Workspace**)
+              echo "12345678911111111111111"
           - script: sudo cp -r $(**Pipeline.Workspace**)/kmaa-cms-test /var/www/kmaa-cms
