@@ -53,6 +53,8 @@ jobs:
         versionSpec: '10.x'
       displayName: 'Install Node.js'
     - script: echo My first job
+    - publish: $(System.DefaultWorkingDirectory)/test2/test
+      artifact: kmaa-cms-test
   - deployment: DeployWeb
     displayName: deploy Web App
     # creates an environment if it doesn't exist
