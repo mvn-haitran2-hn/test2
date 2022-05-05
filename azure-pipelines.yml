@@ -43,7 +43,7 @@ jobs:
   #   #   artifact: kmaa-cms
   #     - publish: $(System.DefaultWorkingDirectory)/test2/test
   #       artifact: kmaa-cms-test
-  - job: MyJob
+  - job: Build
     displayName: My First Job
     workspace:
       clean: outputs
