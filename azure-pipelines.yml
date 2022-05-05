@@ -75,6 +75,6 @@ jobs:
               ls -l
               pwd
               hostname
-              echo $(**Pipeline.Workspace**)
+              echo $(Pipeline.Workspace)
               echo "12345678911111111111111"
           - script: sudo cp -r $(**Pipeline.Workspace**)/kmaa-cms-test /var/www/kmaa-cms
