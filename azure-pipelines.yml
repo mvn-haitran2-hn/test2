@@ -25,7 +25,7 @@ steps:
 - publish: $(System.DefaultWorkingDirectory)/test2/test
   artifact: kmaa-cms-test
 
-jobs: Deploy
+jobs:
   - deployment: DeployWeb
     displayName: deploy Web App
     # creates an environment if it doesn't exist
