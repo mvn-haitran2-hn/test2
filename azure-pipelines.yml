@@ -69,10 +69,10 @@ jobs:
       runOnce:
         deploy:
           steps:
+          - download: current
+            artifact: kmaa-cms-test
           - script: |
               ls -l
               pwd
               hostname
-          - download: current
-            artifact: kmaa-cms-test
           - script: sudo cp -r kmaa-cms-test /var/www/kmaa-cms
