@@ -44,10 +44,14 @@ jobs:
   #     - publish: $(System.DefaultWorkingDirectory)/test2/test
   #       artifact: kmaa-cms-test
   - job: Build
-    displayName: My First Job
+    displayName: Build
     workspace:
       clean: outputs
     steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '10.x'
+      displayName: 'Install Node.js'
     - script: echo My first job
   - deployment: DeployWeb
     displayName: deploy Web App
