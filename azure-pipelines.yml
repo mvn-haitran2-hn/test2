@@ -15,8 +15,32 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+# - script: |
+#     npm install
+#     npm run build
+#   displayName: 'npm install and build'
 
+# - publish: $(System.DefaultWorkingDirectory)/kmaa-cms/dist
+#   artifact: kmaa-cms
+- publish: $(System.DefaultWorkingDirectory)/test2/test
+  artifact: kmaa-cms-test
+
+jobs: Deploy
+- deployment: DeployWeb
+  displayName: deploy Web App
+  # creates an environment if it doesn't exist
+  environment:
+    name: 'Testenv'
+    resourceType: VirtualMachine
+    tags: tag1
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - script: |
+            ls -l
+            pwd
+            hostname
+        - download: current
+          artifact: kmaa-cms-test
+        - script: sudo cp -r kmaa-cms-test /var/www/kmaa-cms
