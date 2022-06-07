@@ -55,27 +55,27 @@ jobs:
     - script: |
         ls -l
         pwd
-    - publish: $(System.DefaultWorkingDirectory)/test
-      artifact: kmaa-cms-test
-  - deployment: DeployWeb
-    displayName: deploy Web App
-    # creates an environment if it doesn't exist
-    environment:
-      name: 'Testenv'
-      resourceType: VirtualMachine
-      tags: tag1
-    dependsOn: Build
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - download: current
-            artifact: kmaa-cms-test
-          - script: |
-              ls -l
-              pwd
-              hostname
-              echo $(Pipeline.Workspace)
-              echo "12345678911111111111111"
-              sudo cp -r $(Pipeline.Workspace)/kmaa-cms-test/* /var/www/kmaa-cms/
-            displayName: Deploy
+    # - publish: $(System.DefaultWorkingDirectory)/test
+    #   artifact: kmaa-cms-test
+  # - deployment: DeployWeb
+  #   displayName: deploy Web App
+  #   # creates an environment if it doesn't exist
+  #   environment:
+  #     name: 'Testenv'
+  #     resourceType: VirtualMachine
+  #     tags: tag1
+  #   dependsOn: Build
+  #   strategy:
+  #     runOnce:
+  #       deploy:
+  #         steps:
+  #         - download: current
+  #           artifact: kmaa-cms-test
+  #         - script: |
+  #             ls -l
+  #             pwd
+  #             hostname
+  #             echo $(Pipeline.Workspace)
+  #             echo "12345678911111111111111"
+  #             sudo cp -r $(Pipeline.Workspace)/kmaa-cms-test/* /var/www/kmaa-cms/
+  #           displayName: Deploy
