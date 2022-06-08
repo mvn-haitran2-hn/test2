@@ -15,11 +15,12 @@ jobs:
     workspace:
       clean: outputs
     steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '18.x'
-      displayName: 'Install Node.js'
+    # - task: NodeTool@0
+    #   inputs:
+    #     versionSpec: '18.x'
+    #   displayName: 'Install Node.js'
     - script: |
         ls -l
         pwd
+        whoami
  
